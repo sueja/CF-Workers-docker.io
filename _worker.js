@@ -272,8 +272,8 @@ export default {
       } else if (url.pathname == "/") {
         return new Response(await searchInterface(), {
           headers: {
-            "X-Ip-Addr": request.headers.get("X-Real-IP");
-            "X-Ip-Addr2": request.headers.get("X-Forwarded-For");
+            "X-Ip-Addr": request.headers.get("X-Real-IP"),
+            "X-Ip-Addr2": request.headers.get("X-Forwarded-For"),
             "Content-Type": "text/html; charset=UTF-8",
           },
         });
