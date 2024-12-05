@@ -232,11 +232,14 @@ export default {
     }
 
     // 增加 IP 白名单
-    const addr = request.headers.get("X-Forwarded-For");
+    const addr = request.headers.get("X-Real-IP");
     if (addr) {
-      const ip = addr.split(",")[0];
-      if (!IP_WHITELIST.includes(ip)) {
-        return new Response("IP not allowed", { status: 403 });
+      if (!IP_WHITELIST.includes(addr)) {
+		return new Response(await nginx(), {
+			headers: {
+			  "Content-Type": "text/html; charset=UTF-8",
+			},
+		  });
       }
     }
 
