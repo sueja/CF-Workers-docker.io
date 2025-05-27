@@ -188,7 +188,7 @@ async function searchInterface() {
   return text;
 }
 
-const IP_WHITELIST = ["39.170.67.86", "111.22.153.148", "183.215.205.96"];
+const IP_WHITELIST = ["39.170.67.86", "111.22.153.148", "183.215.205.96", "211.90.238.35"];
 export default {
   async fetch(request, env, ctx) {
     const getReqHeader = (key) => request.headers.get(key); // 获取请求头
